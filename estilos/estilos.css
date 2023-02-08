@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/*===================================================
+RESET de estilos
+===================================================*/
+/* reseteo propiedad Bootstrap */
+*, ::after, ::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: content-box;
+}
+
+/*===================================================
+Estilos globales
+===================================================*/
+body {
+    background-color: whitesmoke;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-image: url("https://fotografias.antena3.com/clipping/cmsimages01/2020/05/13/2E2049F1-AF49-45C8-A5C4-431257D66FA2/57.jpg");
+    background-size: cover;
+  }
+  
+  h1 {
+    font-size: calc(1.375rem + 1.5vw);
+    text-align: center;
+    color: aliceblue;
+  }
+
