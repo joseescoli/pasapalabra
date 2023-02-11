@@ -61,10 +61,11 @@ function preguntar (n) {
         "==========================\n" +
         preguntas[n].opciones
         ) )
-        if (respuesta.length != 1 && isNaN(respuesta)) {
-            alert("Debe ingresar sólo un número.")
+
+        if ( ( respuesta > 4 || respuesta <= 0 )    ||  isNaN(respuesta) ) {
+            alert("Debe ingresar sólo las opciones informadas.")
         }
-    } while (respuesta.length != 1 && isNaN(respuesta));
+    } while ( ( respuesta > 4 || respuesta <= 0 )    ||  isNaN(respuesta) );
     return respuesta;
 }
 
@@ -75,7 +76,7 @@ function guardarJugador (nombre, puntos) {
 // Inicio de salida por pantalla con bienvenida
 alert("\
 ============================================= \
-            Bienvenidos a Pasapalabra \
+                                Bienvenidos a Pasapalabra \
 ============================================= \
 El concurso de preguntas y respuestas que suma puntos.\n\n \
 Presione Aceptar cuando esté listo para comenzar... \n \
@@ -107,9 +108,9 @@ do {
 
     // Salida de pantalla con resultados finales y mensajes personalizado de aliento.
     alert( `\
-    =============================================\n \
-                        RESULTADOS FINALES \
-    =============================================\n\n \
+=============================================\n \
+                                RESULTADOS FINALES \
+=============================================\n\n \
     ${jugador}, tu puntaje es ${puntaje}\n \
     ${mensaje}\n`);
 
@@ -120,12 +121,14 @@ do {
 
 // Resumen de jugadores que probaron
 let resumen = ""
-for (const lista of Jugador) resumen += lista.nombre + ": " + lista.puntaje + "\n"
+for (const lista of Jugador) resumen += "- " + lista.nombre + ": " + lista.puntaje + "\n"
 alert("Jugadores que han probado y sus puntajes:\n\n" + resumen)
 
 
 // Jugadores con el puntaje más alto
 resumen = ""
 const resultado = Jugador.filter((lista) => lista.puntaje === 6)
-for (const lista of resultado) resumen += lista.nombre + "\n"
-alert("Jugadores con el mejor puntaje:\n\n" + resumen)
+if (resultado.length > 0) {
+    for (const lista of resultado) resumen += "- " + lista.nombre + "\n"
+    alert("Jugadores con el mejor puntaje:\n\n" + resumen)
+}
