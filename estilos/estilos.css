@@ -13,15 +13,192 @@ RESET de estilos
 Estilos globales
 ===================================================*/
 body {
+    width: 100vw;
+    height: 100vh;
     background-color: whitesmoke;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-image: url("https://fotografias.antena3.com/clipping/cmsimages01/2020/05/13/2E2049F1-AF49-45C8-A5C4-431257D66FA2/57.jpg");
     background-size: cover;
-  }
-  
-  h1 {
-    font-size: calc(1.375rem + 1.5vw);
-    text-align: center;
-    color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
   }
 
+  main {
+    position: relative;
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 80vh;
+    /* background-color: aliceblue; */
+    border-color: orange;
+    border-style: solid;
+    background-image: linear-gradient(to top, blue, whitesmoke);
+  
+    /* justify-content: center; */
+    align-content: center;
+  
+    /* justify-items: center; */
+    align-items: center;
+  }
+ 
+h1 {
+    font-size: calc(1.375rem + 1.5vw);
+    /* text-align: center; */
+  }
+
+h2 {
+    margin-top: 50px;
+}
+
+p {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#jugar {
+  font-size: 2rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 20%;
+  height: 3rem;
+  border-radius: 10px;
+}
+
+#limpiar{
+  display: none;
+  font-size: 2rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 20%;
+  height: 3rem;
+  border-radius: 10px;
+}
+
+#jugadores:first-line {
+  font-weight: bold;
+}
+
+#jugar:hover {
+  background-color: orange;
+}
+
+
+.juego {
+  position: relative;
+  /* display: flex; */
+  display: none;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 85vw;
+  height: 85vh;
+  border-color: orange;
+  border-style: solid;
+  background-image: linear-gradient(to top, blue, whitesmoke);
+
+  justify-content: center;
+  align-content: center;
+
+}
+
+.pregunta {
+  margin-top: 20px;
+  font-size: 2rem;
+  /* height: auto; */
+  width: 80%;
+  /* border-style: solid; */
+  text-align: center;
+  word-wrap: normal;
+  /* overflow-wrap: break-word; */
+}
+
+.opciones {
+  margin-top: 20px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  /* border-style: solid; */
+  height: 70vh;
+  width: 90%;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.formulario {
+  /* margin-top: 10px; */
+  height: 90%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  /* border-style: solid; */
+  border-color: yellow;
+}
+
+.respuestas__listado {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 40px;
+  border-style: none;
+  /* border-color: white; */
+  height: 80%;
+  width: 95%;
+}
+
+.respuestas__listado div {
+  border-style: solid;
+  height: 90%;
+  text-align: left;
+  font-size: 2rem;
+}
+
+.respuestas__listado div:hover {
+  background-color: orange;
+}
+
+.respuestas__listado div:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.respuestas__listado div:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.respuestas__listado div:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.respuestas__listado div:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.respuestas__boton {
+  margin-top: 20px;
+  border-style: none;
+}
+
+.respuestas__boton input {
+  height: 20px;
+  font-size: 1rem;
+  width: 80px;
+}
+
+.respuestas__boton input:hover {
+  background-color: orange;
+}

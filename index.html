@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +8,43 @@
     <title>Pasapalabra</title>
 </head>
 <body>
-    <h1>PASAPALABRA</h1>
-    <!-- <h2>Bienvenidos a Pasapalabra.</h2> -->
-    <!-- <p>Presionando el botón debajo podrán acceder a las preguntas.</p> -->
-    <!-- <button>Iniciar</button> -->
+    <main>
+        <h1>PASAPALABRA</h1>
+        <h2>Bienvenidos a Pasapalabra.</h2>
+        <p>Ingrese su nombre debajo:</p>
+        <input type="text" placeholder="Coloque su nombre aquí..." name="nombre"></input>
+        <p>Presionando el botón debajo se comienza el juego de las preguntas...</p>
+        <button id="jugar">Iniciar</button>
+        <button id="limpiar">Borrar resultados</button>
+    </main>
+    <div class="juego">
+        <div class="pregunta">Pregunta</div>
+        <div class="opciones">Opciones
+            <form action="#" class="formulario">
+                <fieldset class="respuestas__listado">
+                    <div>
+                        <input type="radio" name="respuesta"></input>
+                        <label for="respuesta" id="o">OPCION #1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="respuesta"></input>
+                        <label for="respuesta" id="o">OPCION #2</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="respuesta"></input>
+                        <label for="respuesta" id="o">OPCION #3</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="respuesta"></input>
+                        <label for="respuesta" id="o">OPCION #4</label>
+                    </div>
+                </fieldset>
+                <fieldset class="respuestas__boton">
+                    <input type="submit" value="Continuar" id="validar"></input>
+                </fieldset>
+            </form>
+        </div>
+    </div>
     <script src="./js/main.js"></script>
 </body>
 </html>
