@@ -4,41 +4,8 @@ let puntaje = 0;
 let npregunta = 0;
 let Jugador = [];
 let nombre = ""
-
-// Definición de datos
-let preguntas = [
-
-    {
-        texto:      "EN EL LENGUAJE DE CHAT, ¿CUÁL DE ESTAS OPCIONES SUELE SIGNIFICAR “REÍRSE A CARCAJADAS”?",
-        opciones:   ["FYI", "LOL", "BRB", "TBH"],
-        respuesta:  2
-    },
-    {
-        texto:      "¿CON QUÉ COLOR SE ASOCIA POPULARMENTE AL PERIODISMO SENSACIONALISTA?",
-        opciones:   ["NARANJA", "BLANCO", "AMARILLO", "AZUL"],
-        respuesta:  3
-    },
-    {
-        texto:      "EN EL LENGUAJE DE LAS REDES SOCIALES, ¿CUÁNTOS SEGUIDORES SON “1K”?",
-        opciones:   ["1000", "10", "100", "10000"],
-        respuesta:  1
-    },
-    {
-        texto:      "¿CÓMO COMIENZA LA CANCIÓN PATRIA CONOCIDA COMO “AURORA”?",
-        opciones:   ["FEBO ASOMA", "OID MORTALES", "CORONADOS", "ALTA EN EL CIELO"],
-        respuesta:  4
-    },
-    {
-        texto:      "¿CUÁL ES EL NOMBRE DEL CABALLO DEL ZORRO EN LA FAMOSA SERIE TELEVISIVA?",
-        opciones:   ["BESTIA", "TORNADO", "ESTRELLA", "TRUENO"],
-        respuesta:  2
-    },
-    {
-        texto:      "¿CUÁL ES LA CAPITAL DE PORTUGAL?",
-        opciones:   ["PARAMARIBO", "MADRID", "LISBOA", "PORTO ALEGRE"],
-        respuesta:  3
-    }
-]
+let preguntas = []
+let icono = ""
 
 // Constructores
 class Persona{
@@ -61,9 +28,24 @@ function guardarJugador (nombre, puntos) {
     Jugador.push(new Persona(nombre, puntos))
 }
 
-function nuevaPregunta (texto, opciones, respuesta) {
-    preguntas.push(new Pregunta(texto, opciones, respuesta))
+function cargarPregunta (texto, opciones, respuesta) {
+    const nuevaPregunta = new Pregunta(texto, opciones, respuesta)
+    preguntas.push(nuevaPregunta)
 }
+
+// Ingreso de datos por archivo JSON
+fetch('./json/preguntas.json')
+    .then( (resp) => resp.json() )
+    .then( (data) =>    {
+                            data.forEach( (lista) => {
+                                cargarPregunta(lista.texto, lista.opciones, lista.respuesta)
+                            }
+                            )
+                        }
+    )
+    .catch( (error) => { console.error(error); console.log("Validar carga archivo JSON") } )
+
+// Inicio de App
 
 let botonLimpiar = document.getElementById("limpiar")
 let bienvenida = document.getElementsByTagName("main")[0]
@@ -129,16 +111,24 @@ function boton_validar() {
         // Evalua el puntaje obtenido y genera en pantalla un mensaje personalizado según el resultado obtenido.
         if (puntaje >= 0 && puntaje <= 2 ) {
             mensaje = "¡Hay que repasar muchos conceptos básicos!";
+            icono = "error"
         } else if (puntaje >= ( preguntas.length )/2    &&      puntaje <= ( preguntas.length ) -1 ) {
             mensaje = "¡Bien ahí, algo te acordás. Te falta un poco repasar igual! Siempre se puede mejorar.";
+            icono = "warning"
         } else {
             mensaje = "¡Impecable! Buen trabajo. ¡FELICITACIONES!";
+            icono = "success"
         }
 
         let resumen = ""
-        resumen = `${nombre}, tenés un puntaje de ${puntaje}\n`
+        resumen = `${nombre}, tenés un puntaje de ${puntaje}\n\n`
         resumen += mensaje + "\n\n";
-        alert(resumen);
+        Swal.fire({
+            title: '¡Juego terminado!',
+            text: `${resumen}`,
+            icon: `${icono}`,
+            confirmButtonText: 'OK'
+        })
         
         resumen = "Listado de jugadores y sus puntajes\n\n";
         Jugador.forEach( (lista) => resumen += `${lista.nombre} = ${lista.puntaje}\n`)
@@ -199,7 +189,28 @@ formulario.addEventListener("submit", (e) => {
     // probar usar arriba .includes en lugar de forEach
     if ( respuesta + 1 == preguntas[npregunta].respuesta ) {
         puntaje++;
+
+        // Uso de la librería Toastify para notificar una opción correcta.
+        Toastify({
+            text: "¡Correcto!",
+            duration: 3000,
+            gravity: 'top',
+            position: 'right',
+            style: { background: "green" }
+        }).showToast();
+    
     }
+    else {
+        Toastify({
+            text: "¡Incorrecto!",
+            duration: 3000,
+            gravity: 'top',
+            position: 'right',
+            style: { background: "red" }
+        }).showToast();
+        
+    }
+
     boton_validar();
 }
 )

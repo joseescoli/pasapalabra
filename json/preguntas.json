@@ -1,0 +1,33 @@
+[
+
+    {
+        "texto":      "EN EL LENGUAJE DE CHAT, ¿CUÁL DE ESTAS OPCIONES SUELE SIGNIFICAR “REÍRSE A CARCAJADAS”?",
+        "opciones":   ["FYI", "LOL", "BRB", "TBH"],
+        "respuesta":  2
+    },
+    {
+        "texto":      "¿CON QUÉ COLOR SE ASOCIA POPULARMENTE AL PERIODISMO SENSACIONALISTA?",
+        "opciones":   ["NARANJA", "BLANCO", "AMARILLO", "AZUL"],
+        "respuesta":  3
+    },
+    {
+        "texto":      "EN EL LENGUAJE DE LAS REDES SOCIALES, ¿CUÁNTOS SEGUIDORES SON “1K”?",
+        "opciones":   ["1000", "10", "100", "10000"],
+        "respuesta":  1
+    },
+    {
+        "texto":      "¿CÓMO COMIENZA LA CANCIÓN PATRIA CONOCIDA COMO “AURORA”?",
+        "opciones":   ["FEBO ASOMA", "OID MORTALES", "CORONADOS", "ALTA EN EL CIELO"],
+        "respuesta":  4
+    },
+    {
+        "texto":      "¿CUÁL ES EL NOMBRE DEL CABALLO DEL ZORRO EN LA FAMOSA SERIE TELEVISIVA?",
+        "opciones":   ["BESTIA", "TORNADO", "ESTRELLA", "TRUENO"],
+        "respuesta":  2
+    },
+    {
+        "texto":      "¿CUÁL ES LA CAPITAL DE PORTUGAL?",
+        "opciones":   ["PARAMARIBO", "MADRID", "LISBOA", "PORTO ALEGRE"],
+        "respuesta":  3
+    }
+]
