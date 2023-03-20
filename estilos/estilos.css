@@ -63,7 +63,7 @@ p {
   font-size: 2rem;
   margin-top: 40px;
   margin-bottom: 20px;
-  width: 20%;
+  width: 300px;
   height: 3rem;
   border-radius: 10px;
 }
@@ -73,9 +73,13 @@ p {
   font-size: 2rem;
   margin-top: 40px;
   margin-bottom: 20px;
-  width: 20%;
+  width: 300px;
   height: 3rem;
   border-radius: 10px;
+}
+
+#limpiar:hover {
+  background-color: orange;
 }
 
 #jugadores:first-line {
